@@ -1,5 +1,5 @@
-import { createInertiaApp, type ResolvedComponent } from '@inertiajs/svelte'
-import { mount } from 'svelte'
+import { type ResolvedComponent, createInertiaApp } from "@inertiajs/svelte"
+import { mount } from "svelte"
 
 createInertiaApp({
   // Set default page title
@@ -13,7 +13,7 @@ createInertiaApp({
   // progress: false,
 
   resolve: (name) => {
-    const pages = import.meta.glob<ResolvedComponent>('../pages/**/*.svelte', {
+    const pages = import.meta.glob<ResolvedComponent>("../pages/**/*.svelte", {
       eager: true,
     })
     const page = pages[`../pages/${name}.svelte`]
@@ -35,8 +35,8 @@ createInertiaApp({
       mount(App, { target: el, props })
     } else {
       console.error(
-        'Missing root element.\n\n' +
-          'If you see this error, it probably means you load Inertia.js on non-Inertia pages.\n' +
+        "Missing root element.\n\n" +
+          "If you see this error, it probably means you load Inertia.js on non-Inertia pages.\n" +
           'Consider moving <%= vite_typescript_tag "inertia" %> to the Inertia-specific layout instead.',
       )
     }
