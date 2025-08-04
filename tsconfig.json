@@ -15,6 +15,12 @@
     "checkJs": true,
     "isolatedModules": true,
     "moduleDetection": "force",
+
+    /* Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./app/frontend/*"]
+    }
   },
   "include": ["app/frontend/**/*.ts", "app/frontend/**/*.js", "app/frontend/**/*.svelte"],
   "references": [{ "path": "./tsconfig.node.json" }]
