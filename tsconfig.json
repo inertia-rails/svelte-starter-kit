@@ -23,5 +23,6 @@
     }
   },
   "include": ["app/frontend/**/*.ts", "app/frontend/**/*.js", "app/frontend/**/*.svelte"],
+  "exclude": ["app/frontend/routes/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
