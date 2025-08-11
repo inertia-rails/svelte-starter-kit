@@ -1,11 +1,16 @@
 import { type ResolvedComponent, createInertiaApp } from "@inertiajs/svelte"
 import { mount } from "svelte"
 
+import PersistentLayout from "@/layouts/persistent-layout.svelte"
+import { initializeTheme } from "@/runes/use-appearance.svelte"
+
+const appName = import.meta.env.VITE_APP_NAME ?? "Svelte Starter Kit"
+
 createInertiaApp({
   // Set default page title
   // see https://inertia-rails.dev/guide/title-and-meta
-  //
-  // title: title => title ? `${title} - App` : 'App',
+  // @ts-expect-error (waiting for @inertiajs/svelte to fix types)
+  title: (title) => (title ? `${title} - ${appName}` : appName),
 
   // Disable progress bar
   //
@@ -24,14 +29,19 @@ createInertiaApp({
     // To use a default layout, import the Layout component
     // and use the following line.
     // see https://inertia-rails.dev/guide/pages#default-layouts
-    //
-    // return { default: page.default, layout: page.layout || Layout }
-
-    return page
+    return {
+      default: page.default,
+      layout: page.layout ?? PersistentLayout,
+    } as ResolvedComponent
   },
 
   setup({ el, App, props }) {
     if (el) {
+      // Uncomment the following to enable SSR hydration:
+      // if (el.dataset.serverRendered === 'true') {
+      //   hydrate(App, {target: el, props})
+      //   return
+      // }
       mount(App, { target: el, props })
     } else {
       console.error(
@@ -41,4 +51,10 @@ createInertiaApp({
       )
     }
   },
+  progress: {
+    color: "#4B5563",
+  },
 })
+
+// This will set light / dark mode on page load...
+initializeTheme()
