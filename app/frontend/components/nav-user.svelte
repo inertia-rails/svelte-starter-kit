@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "@inertiajs/svelte"
-  import { ChevronsUpDown } from "lucide-svelte"
+  import { ChevronsUpDown } from "@lucide/svelte"
 
   import {
     DropdownMenu,

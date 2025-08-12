@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte"
 
-  // import AppLayout from "@/layouts/app/app-sidebar-layout.svelte"
-  import AppLayout from "@/layouts/app/app-header-layout.svelte"
+  import AppLayout from "@/layouts/app/app-sidebar-layout.svelte"
   import type { BreadcrumbItemType } from "@/types"
 
   interface Props {

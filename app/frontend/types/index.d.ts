@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-svelte"
+import type { LucideIcon } from "@lucide/svelte"
 
 export interface Auth {
   user: User

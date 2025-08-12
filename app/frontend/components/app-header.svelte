@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "@inertiajs/svelte"
   import { inertia } from "@inertiajs/svelte"
-  import { BookOpen, Folder, LayoutGrid, Menu, Search } from "lucide-svelte"
+  import { BookOpen, Folder, LayoutGrid, Menu, Search } from "@lucide/svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
   import AppLogo from "@/components/app-logo.svelte"

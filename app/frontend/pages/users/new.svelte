@@ -1,6 +1,6 @@
 <script lang="ts">
   import { useForm } from "@inertiajs/svelte"
-  import { LoaderCircle } from "lucide-svelte"
+  import { LoaderCircle } from "@lucide/svelte"
 
   import InputError from "@/components/input-error.svelte"
   import TextLink from "@/components/text-link.svelte"

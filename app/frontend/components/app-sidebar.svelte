@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Link } from "@inertiajs/svelte"
-  import { BookOpen, Folder, LayoutGrid } from "lucide-svelte"
+  import { BookOpen, Folder, LayoutGrid } from "@lucide/svelte"
 
   import NavFooter from "@/components/nav-footer.svelte"
   import NavMain from "@/components/nav-main.svelte"

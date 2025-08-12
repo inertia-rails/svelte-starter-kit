@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Monitor, Moon, Sun } from "lucide-svelte"
+  import { Monitor, Moon, Sun } from "@lucide/svelte"
 
   import { useAppearanceSvelte } from "@/runes/use-appearance.svelte"
 
