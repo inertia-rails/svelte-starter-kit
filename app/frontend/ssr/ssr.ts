@@ -4,15 +4,10 @@ import { render } from "svelte/server"
 
 import PersistentLayout from "@/layouts/persistent-layout.svelte"
 
-const appName = import.meta.env.VITE_APP_NAME ?? "Svelte Starter Kit"
-
 createServer(
   (page) =>
     createInertiaApp({
       page,
-      // @ts-expect-error (waiting for @inertiajs/svelte to fix types)
-      title: (title) => (title ? `${title} - ${appName}` : appName),
-
       resolve: (name) => {
         const pages = import.meta.glob<ResolvedComponent>(
           "../pages/**/*.svelte",

@@ -4,14 +4,7 @@ import { mount } from "svelte"
 import PersistentLayout from "@/layouts/persistent-layout.svelte"
 import { initializeTheme } from "@/runes/use-appearance.svelte"
 
-const appName = import.meta.env.VITE_APP_NAME ?? "Svelte Starter Kit"
-
 createInertiaApp({
-  // Set default page title
-  // see https://inertia-rails.dev/guide/title-and-meta
-  // @ts-expect-error (waiting for @inertiajs/svelte to fix types)
-  title: (title) => (title ? `${title} - ${appName}` : appName),
-
   // Disable progress bar
   //
   // see https://inertia-rails.dev/guide/progress-indicators
