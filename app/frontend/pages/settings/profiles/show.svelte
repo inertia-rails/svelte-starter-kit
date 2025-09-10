@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { useForm } from "@inertiajs/svelte"
-  import { page } from "@inertiajs/svelte"
+  import type { FormComponentSlotProps } from "@inertiajs/core"
+  import { Form, page } from "@inertiajs/svelte"
   import { fly } from "svelte/transition"
 
   import DeleteUser from "@/components/delete-user.svelte"
@@ -20,17 +20,6 @@
       href: settingsProfilePath(),
     },
   ]
-
-  const form = useForm({
-    name: $page.props.auth.user.name,
-  })
-
-  const submit = (e: Event) => {
-    e.preventDefault()
-    $form.patch(settingsProfilePath(), {
-      preserveScroll: true,
-    })
-  }
 </script>
 
 <svelte:head>
@@ -45,34 +34,48 @@
         description="Update your name and email address"
       />
 
-      <form onsubmit={submit} class="space-y-6">
-        <div class="grid gap-2">
-          <Label for="name">Name</Label>
-          <Input
-            id="name"
-            class="mt-1 block w-full"
-            bind:value={$form.name}
-            required
-            autocomplete="name"
-            placeholder="Full name"
-          />
-          <InputError class="mt-2" message={$form.errors.name} />
-        </div>
+      <Form
+        method="patch"
+        action={settingsProfilePath()}
+        options={{
+          preserveScroll: true,
+        }}
+        class="space-y-6"
+      >
+        {#snippet children({
+          errors,
+          processing,
+          recentlySuccessful,
+        }: FormComponentSlotProps)}
+          <div class="grid gap-2">
+            <Label for="name">Name</Label>
+            <Input
+              id="name"
+              name="name"
+              class="mt-1 block w-full"
+              value={$page.props.auth.user.name}
+              required
+              autocomplete="name"
+              placeholder="Full name"
+            />
+            <InputError class="mt-2" message={errors.name} />
+          </div>
 
-        <div class="flex items-center gap-4">
-          <Button type="submit" disabled={$form.processing}>Save</Button>
+          <div class="flex items-center gap-4">
+            <Button type="submit" disabled={processing}>Save</Button>
 
-          {#if $form.recentlySuccessful}
-            <p
-              class="text-sm text-neutral-600"
-              in:fly={{ y: -10, duration: 200 }}
-              out:fly={{ y: -10, duration: 200 }}
-            >
-              Saved.
-            </p>
-          {/if}
-        </div>
-      </form>
+            {#if recentlySuccessful}
+              <p
+                class="text-sm text-neutral-600"
+                in:fly={{ y: -10, duration: 200 }}
+                out:fly={{ y: -10, duration: 200 }}
+              >
+                Saved.
+              </p>
+            {/if}
+          </div>
+        {/snippet}
+      </Form>
     </div>
 
     <DeleteUser />
