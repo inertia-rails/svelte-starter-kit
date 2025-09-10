@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { useForm } from "@inertiajs/svelte"
+  import type { FormComponentSlotProps } from "@inertiajs/core"
+  import { Form } from "@inertiajs/svelte"
 
   import HeadingSmall from "@/components/heading-small.svelte"
   import InputError from "@/components/input-error.svelte"
@@ -10,26 +11,6 @@
   import { usersPath } from "@/routes"
 
   let passwordInput: HTMLInputElement | null = null
-
-  const form = useForm({
-    password_challenge: "",
-  })
-
-  const deleteUser = (e: Event) => {
-    e.preventDefault()
-
-    $form.delete(usersPath(), {
-      preserveScroll: true,
-      onSuccess: () => closeModal(),
-      onError: () => passwordInput?.focus(),
-      onFinish: () => $form.reset(),
-    })
-  }
-
-  const closeModal = () => {
-    $form.clearErrors()
-    $form.reset()
-  }
 </script>
 
 <div class="space-y-6">
@@ -49,47 +30,60 @@
         <Button variant="destructive">Delete account</Button>
       </Dialog.Trigger>
       <Dialog.Content>
-        <form class="space-y-6" on:submit={deleteUser}>
-          <Dialog.Header class="space-y-3">
-            <Dialog.Title>
-              Are you sure you want to delete your account?
-            </Dialog.Title>
-            <Dialog.Description>
-              Once your account is deleted, all of its resources and data will
-              also be permanently deleted. Please enter your password to confirm
-              you would like to permanently delete your account.
-            </Dialog.Description>
-          </Dialog.Header>
+        <Form
+          method="delete"
+          action={usersPath()}
+          options={{
+            preserveScroll: true,
+          }}
+          onError={() => passwordInput?.focus()}
+          resetOnSuccess
+          class="space-y-6"
+        >
+          {#snippet children({
+            errors,
+            processing,
+            resetAndClearErrors,
+          }: FormComponentSlotProps)}
+            <Dialog.Header class="space-y-3">
+              <Dialog.Title>
+                Are you sure you want to delete your account?
+              </Dialog.Title>
+              <Dialog.Description>
+                Once your account is deleted, all of its resources and data will
+                also be permanently deleted. Please enter your password to
+                confirm you would like to permanently delete your account.
+              </Dialog.Description>
+            </Dialog.Header>
 
-          <div class="grid gap-2">
-            <Label for="password_challenge" class="sr-only">Password</Label>
-            <Input
-              id="password_challenge"
-              type="password"
-              name="password_challenge"
-              bind:ref={passwordInput}
-              bind:value={$form.password_challenge}
-              placeholder="Password"
-            />
-            <InputError message={$form.errors.password_challenge} />
-          </div>
+            <div class="grid gap-2">
+              <Label for="password_challenge" class="sr-only">Password</Label>
+              <Input
+                id="password_challenge"
+                type="password"
+                name="password_challenge"
+                bind:ref={passwordInput}
+                placeholder="Password"
+              />
+              <InputError message={errors.password_challenge} />
+            </div>
 
-          <Dialog.Footer class="gap-2">
-            <Dialog.Close>
-              {#snippet child()}
-                <Button variant="secondary" onclick={closeModal}>Cancel</Button>
-              {/snippet}
-            </Dialog.Close>
+            <Dialog.Footer class="gap-2">
+              <Dialog.Close>
+                {#snippet child()}
+                  <Button
+                    variant="secondary"
+                    onclick={() => resetAndClearErrors()}>Cancel</Button
+                  >
+                {/snippet}
+              </Dialog.Close>
 
-            <Button
-              type="submit"
-              variant="destructive"
-              disabled={$form.processing}
-            >
-              Delete account
-            </Button>
-          </Dialog.Footer>
-        </form>
+              <Button type="submit" variant="destructive" disabled={processing}>
+                Delete account
+              </Button>
+            </Dialog.Footer>
+          {/snippet}
+        </Form>
       </Dialog.Content>
     </Dialog.Root>
   </div>
