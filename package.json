@@ -43,5 +43,8 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --check 'app/frontend/**/*.{ts,tsx,js,svelte}'",
     "format:fix": "npm run format -- --write"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.52.4"
   }
 }
