@@ -1,6 +1,6 @@
 # Inertia Rails Svelte Starter Kit
 
-A modern full-stack starter application with Rails backend and Svelte frontend using Inertia.js based on the [Laravel Starter Kit](https://github.com/laravel/svelte-starter-kit).
+A modern full-stack starter application with Rails backend and Svelte frontend using Inertia.js based on the [Laravel Starter Kit](https://github.com/laravel/react-starter-kit).
 
 ## Features
 
