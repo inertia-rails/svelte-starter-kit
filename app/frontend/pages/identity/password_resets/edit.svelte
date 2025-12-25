@@ -45,7 +45,7 @@
             class="mt-1 block w-full"
             readonly
           />
-          <InputError message={errors.email} class="mt-2" />
+          <InputError messages={errors.email} class="mt-2" />
         </div>
 
         <div class="grid gap-2">
@@ -59,7 +59,7 @@
             autofocus
             placeholder="Password"
           />
-          <InputError message={errors.password} />
+          <InputError messages={errors.password} />
         </div>
 
         <div class="grid gap-2">
@@ -72,7 +72,7 @@
             class="mt-1 block w-full"
             placeholder="Confirm password"
           />
-          <InputError message={errors.password_confirmation} />
+          <InputError messages={errors.password_confirmation} />
         </div>
 
         <Button type="submit" class="mt-4 w-full" disabled={processing}>

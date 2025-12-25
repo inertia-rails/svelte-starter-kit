@@ -2,17 +2,17 @@
   import { cn } from "@/utils"
 
   interface Props {
-    message?: string
+    messages?: string[]
     class?: string
   }
 
-  let { message, class: className }: Props = $props()
+  let { messages, class: className }: Props = $props()
 </script>
 
-{#if message}
+{#if messages}
   <div>
     <p class={cn("text-sm text-red-600 dark:text-red-500", className)}>
-      {message}
+      {messages.join(", ")}
     </p>
   </div>
 {/if}

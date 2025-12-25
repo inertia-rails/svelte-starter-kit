@@ -41,7 +41,7 @@
             autocomplete="name"
             placeholder="Full name"
           />
-          <InputError message={errors.name} />
+          <InputError messages={errors.name} />
         </div>
 
         <div class="grid gap-2">
@@ -55,7 +55,7 @@
             autocomplete="email"
             placeholder="email@example.com"
           />
-          <InputError message={errors.email} />
+          <InputError messages={errors.email} />
         </div>
 
         <div class="grid gap-2">
@@ -69,7 +69,7 @@
             autocomplete="new-password"
             placeholder="Password"
           />
-          <InputError message={errors.password} />
+          <InputError messages={errors.password} />
         </div>
 
         <div class="grid gap-2">
@@ -83,7 +83,7 @@
             autocomplete="new-password"
             placeholder="Confirm password"
           />
-          <InputError message={errors.password_confirmation} />
+          <InputError messages={errors.password_confirmation} />
         </div>
 
         <Button

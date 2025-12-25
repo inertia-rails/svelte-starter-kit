@@ -1,5 +1,8 @@
-import type { AppPageProps } from "@/types/index"
+import type { SharedData } from "@/types"
 
 declare module "@inertiajs/core" {
-  interface PageProps extends InertiaPageProps, AppPageProps {}
+  export interface InertiaConfig {
+    sharedPageProps: SharedData
+    errorValueType: string[]
+  }
 }

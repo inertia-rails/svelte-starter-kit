@@ -33,7 +33,7 @@
             autofocus
             placeholder="email@example.com"
           />
-          <InputError message={errors.email} />
+          <InputError messages={errors.email} />
         </div>
 
         <div class="my-6 flex items-center justify-start">

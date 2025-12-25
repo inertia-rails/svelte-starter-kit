@@ -58,7 +58,7 @@
               autocomplete="name"
               placeholder="Full name"
             />
-            <InputError class="mt-2" message={errors.name} />
+            <InputError class="mt-2" messages={errors.name} />
           </div>
 
           <div class="flex items-center gap-4">
