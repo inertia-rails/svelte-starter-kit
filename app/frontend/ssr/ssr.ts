@@ -29,6 +29,18 @@ createServer(
         } as ResolvedComponent
       },
 
+      defaults: {
+        form: {
+          forceIndicesArrayFormatInFormData: false,
+        },
+        future: {
+          useScriptElementForInitialPage: true,
+          useDataInertiaHeadAttribute: true,
+          useDialogForErrorModal: true,
+          preserveEqualProps: true,
+        },
+      },
+
       setup: ({ App, props }) => render(App, { props }),
     }),
   { cluster: true },

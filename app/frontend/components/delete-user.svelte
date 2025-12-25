@@ -65,7 +65,7 @@
                 bind:ref={passwordInput}
                 placeholder="Password"
               />
-              <InputError message={errors.password_challenge} />
+              <InputError messages={errors.password_challenge} />
             </div>
 
             <Dialog.Footer class="gap-2">

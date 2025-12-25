@@ -45,6 +45,7 @@ export default ts.config(
   {
     ...importPlugin.flatConfigs.recommended,
     ...importPlugin.flatConfigs.typescript,
+    settings: { "import/resolver": { typescript: {} } },
     rules: {
       "import/order": [
         "error",
@@ -62,7 +63,16 @@ export default ts.config(
         },
       ],
       "import/first": "error",
-      "import/extensions": ["error", "never", { "svg": "always", "png": "always", "jpg": "always", "webp": "always", "svelte": "always", "css": "always" }],
+      "import/extensions": [
+        "error",
+        "always",
+        {
+          js: "never",
+          jsx: "never",
+          ts: "never",
+          tsx: "never",
+        },
+      ],
       "@typescript-eslint/consistent-type-imports": "error",
     },
   },
