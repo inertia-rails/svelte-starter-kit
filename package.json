@@ -4,7 +4,7 @@
   "devDependencies": {
     "@internationalized/date": "^3.8.2",
     "@lucide/svelte": "<1.0",
-    "bits-ui": "^2.9.1",
+    "bits-ui": "^2.15.2",
     "clsx": "^2.1.1",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
