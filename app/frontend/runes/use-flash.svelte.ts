@@ -1,29 +1,16 @@
-import { page, router } from "@inertiajs/svelte"
+import { router } from "@inertiajs/svelte"
 import { toast } from "svelte-sonner"
 
-import type { Flash } from "@/types"
-
-const emptyFlash = {}
-
-export const useFlashSvelte = () => {
-  let currentFlash = $state<Flash>(emptyFlash)
-
-  router.on("start", () => {
-    currentFlash = emptyFlash
-  })
-
+export function useFlash() {
   $effect(() => {
-    return page.subscribe(($page) => {
-      currentFlash = $page.props.flash
+    return router.on("flash", (event) => {
+      const flash = event.detail.flash
+      if (flash.alert) {
+        toast.error(flash.alert)
+      }
+      if (flash.notice) {
+        toast(flash.notice)
+      }
     })
-  })
-
-  $effect(() => {
-    if (currentFlash.alert) {
-      toast.error(currentFlash.alert)
-    }
-    if (currentFlash.notice) {
-      toast(currentFlash.notice)
-    }
   })
 }
