@@ -10,7 +10,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-svelte": "^3.11.0",
+    "eslint-plugin-svelte": "^3.14.0",
     "globals": "^17.0.0",
     "mode-watcher": "^1.1.0",
     "prettier": "^3.6.2",
