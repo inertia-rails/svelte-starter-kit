@@ -6,7 +6,7 @@
     "@lucide/svelte": "<1.0",
     "bits-ui": "^2.9.1",
     "clsx": "^2.1.1",
-    "eslint": "^9.32.0",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
