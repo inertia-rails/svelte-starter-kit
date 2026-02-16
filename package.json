@@ -33,7 +33,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "@tsconfig/svelte": "^5.0.4",
-    "svelte-check": "^4.3.1",
+    "svelte-check": "^4.4.0",
     "tailwindcss": "^4.1.11",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3"
