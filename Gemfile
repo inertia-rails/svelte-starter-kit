@@ -37,7 +37,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Vite in Rails and bring joy to your JavaScript experience
-gem "vite_rails", "~> 3.0"
+gem "vite_rails", "~> 3.10"
 
 # The Rails adapter for Inertia.js [https://inertia-rails.dev]
 gem "inertia_rails", "~> 3.10"
