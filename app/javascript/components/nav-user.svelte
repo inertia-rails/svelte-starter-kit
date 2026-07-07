@@ -18,7 +18,7 @@
   import { type User } from "@/types"
 
   const auth = $derived(
-    $page.props.auth as { user: User; session: { id: string } },
+    page.props.auth as { user: User; session: { id: string } },
   )
   const { isMobile, state } = useSidebar()
 </script>

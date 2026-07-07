@@ -17,7 +17,7 @@
     {#each items as item (item.title)}
       <Sidebar.MenuItem>
         <Sidebar.MenuButton
-          isActive={item.href === $page.url}
+          isActive={item.href === page.url}
           tooltipContent={item.title}
         >
           {#snippet child({ props })}

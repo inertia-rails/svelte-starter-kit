@@ -40,7 +40,7 @@
     class="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl"
   >
     <nav class="flex items-center justify-end gap-4">
-      {#if $page.props.auth.user}
+      {#if page.props.auth.user}
         <a
           href={dashboardPath()}
           use:inertia

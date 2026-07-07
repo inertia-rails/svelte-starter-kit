@@ -19,10 +19,10 @@
     /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/frontend/*"]
+      "@/*": ["./app/javascript/*"]
     }
   },
-  "include": ["app/frontend/**/*.ts", "app/frontend/**/*.js", "app/frontend/**/*.svelte"],
-  "exclude": ["app/frontend/routes/**/*"],
+  "include": ["app/javascript/**/*.ts", "app/javascript/**/*.js", "app/javascript/**/*.svelte"],
+  "exclude": ["app/javascript/routes/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -39,9 +39,9 @@
 
   let { breadcrumbs = [] }: Props = $props()
 
-  const auth = $derived($page.props.auth)
+  const auth = $derived(page.props.auth)
 
-  const isCurrentRoute = $derived((url: string) => $page.url === url)
+  const isCurrentRoute = $derived((url: string) => page.url === url)
 
   const activeItemStyles = $derived((url: string) =>
     isCurrentRoute(url)
