@@ -6,11 +6,11 @@
   import { Button } from "@/components/ui/button"
   import { Separator } from "@/components/ui/separator"
   import {
-    settingsAppearancePath,
-    settingsEmailPath,
-    settingsPasswordPath,
-    settingsProfilePath,
-    settingsSessionsPath,
+    settingsAppearance,
+    settingsEmails,
+    settingsPasswords,
+    settingsProfiles,
+    settingsSessions,
   } from "@/routes"
   import { type NavItem } from "@/types"
 
@@ -23,23 +23,23 @@
   const sidebarNavItems: NavItem[] = [
     {
       title: "Profile",
-      href: settingsProfilePath(),
+      href: settingsProfiles.show().url,
     },
     {
       title: "Email",
-      href: settingsEmailPath(),
+      href: settingsEmails.show().url,
     },
     {
       title: "Password",
-      href: settingsPasswordPath(),
+      href: settingsPasswords.show().url,
     },
     {
       title: "Sessions",
-      href: settingsSessionsPath(),
+      href: settingsSessions.index().url,
     },
     {
       title: "Appearance",
-      href: settingsAppearancePath(),
+      href: settingsAppearance().url,
     },
   ]
 </script>

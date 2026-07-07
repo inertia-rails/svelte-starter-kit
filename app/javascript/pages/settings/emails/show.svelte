@@ -11,20 +11,20 @@
   import { Label } from "@/components/ui/label"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
-  import { identityEmailVerificationPath, settingsEmailPath } from "@/routes"
+  import { identityEmailVerifications, settingsEmails } from "@/routes"
   import type { BreadcrumbItem } from "@/types"
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
       title: "Email settings",
-      href: settingsEmailPath(),
+      href: settingsEmails.show().url,
     },
   ]
 
   const user = $derived(page.props.auth.user)
 
   const resendVerification = () => {
-    router.post(identityEmailVerificationPath())
+    router.post(identityEmailVerifications.create().url)
   }
 </script>
 
@@ -41,8 +41,7 @@
       />
 
       <Form
-        method="patch"
-        action={settingsEmailPath()}
+        action={settingsEmails.update()}
         options={{
           preserveScroll: true,
         }}

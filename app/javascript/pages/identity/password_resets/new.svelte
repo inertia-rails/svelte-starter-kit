@@ -9,7 +9,7 @@
   import { Input } from "@/components/ui/input"
   import { Label } from "@/components/ui/label"
   import AuthLayout from "@/layouts/auth-layout.svelte"
-  import { identityPasswordResetPath, signInPath } from "@/routes"
+  import { identityPasswordResets, sessions } from "@/routes"
 </script>
 
 <svelte:head>
@@ -21,7 +21,7 @@
   description="Enter your email to receive a password reset link"
 >
   <div class="space-y-6">
-    <Form method="post" action={identityPasswordResetPath()}>
+    <Form action={identityPasswordResets.create()}>
       {#snippet children({ errors, processing }: FormComponentSlotProps)}
         <div class="grid gap-2">
           <Label for="email">Email address</Label>
@@ -49,7 +49,7 @@
 
     <div class="text-muted-foreground space-x-1 text-center text-sm">
       <span>Or, return to</span>
-      <TextLink href={signInPath()}>log in</TextLink>
+      <TextLink href={sessions.new()}>log in</TextLink>
     </div>
   </div>
 </AuthLayout>

@@ -29,7 +29,7 @@
     TooltipTrigger,
   } from "@/components/ui/tooltip"
   import UserMenuContent from "@/components/user-menu-content.svelte"
-  import { dashboardPath } from "@/routes"
+  import { dashboard } from "@/routes"
   import { getInitials } from "@/runes/use-initials"
   import type { BreadcrumbItem, NavItem } from "@/types"
 
@@ -128,7 +128,11 @@
         </Sheet>
       </div>
 
-      <a href={dashboardPath()} use:inertia class="flex items-center gap-x-2">
+      <a
+        href={dashboard.index().url}
+        use:inertia
+        class="flex items-center gap-x-2"
+      >
         <AppLogo />
       </a>
 

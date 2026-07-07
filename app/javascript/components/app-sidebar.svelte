@@ -14,7 +14,7 @@
     SidebarMenuButton,
     SidebarMenuItem,
   } from "@/components/ui/sidebar"
-  import { dashboardPath } from "@/routes"
+  import { dashboard } from "@/routes"
   import { type NavItem } from "@/types"
 
   import AppLogo from "./app-logo.svelte"
@@ -22,7 +22,7 @@
   const mainNavItems: NavItem[] = [
     {
       title: "Dashboard",
-      href: dashboardPath(),
+      href: dashboard.index().url,
       icon: LayoutGrid,
     },
   ]
@@ -47,7 +47,7 @@
       <SidebarMenuItem>
         <SidebarMenuButton size="lg">
           {#snippet child({ props })}
-            <Link {...props} href={dashboardPath()}>
+            <Link {...props} href={dashboard.index()}>
               <AppLogo />
             </Link>
           {/snippet}

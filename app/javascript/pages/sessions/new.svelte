@@ -9,11 +9,7 @@
   import { Input } from "@/components/ui/input"
   import { Label } from "@/components/ui/label"
   import AuthBase from "@/layouts/auth-layout.svelte"
-  import {
-    newIdentityPasswordResetPath,
-    signInPath,
-    signUpPath,
-  } from "@/routes"
+  import { identityPasswordResets, sessions, users } from "@/routes"
 </script>
 
 <svelte:head>
@@ -25,8 +21,7 @@
   description="Enter your email and password below to log in"
 >
   <Form
-    method="post"
-    action={signInPath()}
+    action={sessions.create()}
     resetOnSuccess={["password"]}
     class="flex flex-col gap-6"
   >
@@ -51,7 +46,7 @@
           <div class="flex items-center justify-between">
             <Label for="password">Password</Label>
             <TextLink
-              href={newIdentityPasswordResetPath()}
+              href={identityPasswordResets.new()}
               class="text-sm"
               tabindex={5}
             >
@@ -85,7 +80,7 @@
 
       <div class="text-muted-foreground text-center text-sm">
         Don't have an account?
-        <TextLink href={signUpPath()} tabindex={5}>Sign up</TextLink>
+        <TextLink href={users.new()} tabindex={5}>Sign up</TextLink>
       </div>
     {/snippet}
   </Form>

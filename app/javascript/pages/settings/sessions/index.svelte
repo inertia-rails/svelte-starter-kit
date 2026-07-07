@@ -7,7 +7,7 @@
   import { Button } from "@/components/ui/button"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
-  import { sessionPath, settingsSessionsPath } from "@/routes"
+  import { sessions as sessionsRoutes, settingsSessions } from "@/routes"
   import type { BreadcrumbItem, Session } from "@/types"
 
   interface Props {
@@ -19,14 +19,14 @@
   const breadcrumbs: BreadcrumbItem[] = [
     {
       title: "Sessions",
-      href: settingsSessionsPath(),
+      href: settingsSessions.index().url,
     },
   ]
 
   const auth = $derived(page.props.auth)
 
   const deleteSession = (sessionId: string) => {
-    router.delete(sessionPath({ id: sessionId }))
+    router.delete(sessionsRoutes.destroy(sessionId).url)
   }
 </script>
 

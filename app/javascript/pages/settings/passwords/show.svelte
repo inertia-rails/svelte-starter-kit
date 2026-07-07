@@ -10,13 +10,13 @@
   import { Label } from "@/components/ui/label"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
-  import { settingsPasswordPath } from "@/routes"
+  import { settingsPasswords } from "@/routes"
   import { type BreadcrumbItem } from "@/types"
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
       title: "Password settings",
-      href: settingsPasswordPath(),
+      href: settingsPasswords.show().url,
     },
   ]
 </script>
@@ -34,8 +34,7 @@
       />
 
       <Form
-        method="put"
-        action={settingsPasswordPath()}
+        action={settingsPasswords.update()}
         options={{
           preserveScroll: true,
         }}

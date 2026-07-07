@@ -3,13 +3,13 @@
   import HeadingSmall from "@/components/heading-small.svelte"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
-  import { settingsAppearancePath } from "@/routes"
+  import { settingsAppearance } from "@/routes"
   import { type BreadcrumbItem } from "@/types"
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
       title: "Appearance settings",
-      href: settingsAppearancePath(),
+      href: settingsAppearance().url,
     },
   ]
 </script>
