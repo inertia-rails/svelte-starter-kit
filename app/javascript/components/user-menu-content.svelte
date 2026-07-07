@@ -9,7 +9,7 @@
     DropdownMenuSeparator,
   } from "@/components/ui/dropdown-menu"
   import UserInfo from "@/components/user-info.svelte"
-  import { sessionPath, settingsProfilePath } from "@/routes"
+  import { sessions, settingsProfiles } from "@/routes"
   import type { User } from "@/types"
 
   interface Props {
@@ -38,7 +38,7 @@
   <DropdownMenuItem class="w-full">
     {#snippet child({ props })}
       <Link
-        href={settingsProfilePath()}
+        href={settingsProfiles.show()}
         data-sveltekit-prefetch
         as="button"
         {...props}
@@ -53,8 +53,7 @@
 <DropdownMenuItem class="w-full">
   {#snippet child({ props })}
     <Link
-      href={sessionPath({ id: auth.session.id })}
-      method="delete"
+      href={sessions.destroy(auth.session.id)}
       as="button"
       onclick={handleLogout}
       {...props}

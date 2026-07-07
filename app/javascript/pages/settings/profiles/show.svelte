@@ -11,13 +11,13 @@
   import { Label } from "@/components/ui/label"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
-  import { settingsProfilePath } from "@/routes"
+  import { settingsProfiles } from "@/routes"
   import { type BreadcrumbItem } from "@/types"
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
       title: "Profile settings",
-      href: settingsProfilePath(),
+      href: settingsProfiles.show().url,
     },
   ]
 </script>
@@ -35,8 +35,7 @@
       />
 
       <Form
-        method="patch"
-        action={settingsProfilePath()}
+        action={settingsProfiles.update()}
         options={{
           preserveScroll: true,
         }}

@@ -3,7 +3,7 @@
   import type { Snippet } from "svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
-  import { rootPath } from "@/routes"
+  import { home } from "@/routes"
 
   interface Props {
     title?: string
@@ -21,7 +21,7 @@
     <div class="flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4">
         <a
-          href={rootPath()}
+          href={home.index().url}
           use:inertia
           class="flex flex-col items-center gap-2 font-medium"
         >

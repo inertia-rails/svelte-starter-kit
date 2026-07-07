@@ -10,7 +10,7 @@
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-  import { rootPath } from "@/routes"
+  import { home } from "@/routes"
 
   interface Props {
     title?: string
@@ -26,7 +26,7 @@
 >
   <div class="flex w-full max-w-md flex-col gap-6">
     <a
-      href={rootPath()}
+      href={home.index().url}
       use:inertia
       class="flex items-center gap-2 self-center font-medium"
     >

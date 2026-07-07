@@ -8,7 +8,7 @@
   import { Input } from "@/components/ui/input"
   import { Label } from "@/components/ui/label"
   import AuthLayout from "@/layouts/auth-layout.svelte"
-  import { identityPasswordResetPath } from "@/routes"
+  import { identityPasswordResets } from "@/routes"
 
   interface Props {
     sid: string
@@ -27,8 +27,7 @@
   description="Please enter your new password below"
 >
   <Form
-    method="put"
-    action={identityPasswordResetPath()}
+    action={identityPasswordResets.update()}
     transform={(data) => ({ ...data, sid, email })}
     resetOnSuccess={["password", "password_confirmation"]}
   >

@@ -3,13 +3,13 @@
 
   import PlaceholderPattern from "@/components/placeholder-pattern.svelte"
   import AppLayout from "@/layouts/app-layout.svelte"
-  import { dashboardPath } from "@/routes"
+  import { dashboard } from "@/routes"
   import { type BreadcrumbItem } from "@/types"
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
       title: "Dashboard",
-      href: dashboardPath(),
+      href: dashboard.index().url,
     },
   ]
 </script>

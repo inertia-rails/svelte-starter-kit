@@ -3,7 +3,7 @@
   import type { Snippet } from "svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
-  import { rootPath } from "@/routes"
+  import { home } from "@/routes"
 
   interface Props {
     title?: string
@@ -22,7 +22,7 @@
   >
     <div class="absolute inset-0 bg-zinc-900"></div>
     <a
-      href={rootPath()}
+      href={home.index().url}
       use:inertia
       class="relative z-20 flex items-center text-lg font-medium"
     >

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { Method } from "@inertiajs/core"
+  import type { LinkComponentBaseProps, Method } from "@inertiajs/core"
   import { Link } from "@inertiajs/svelte"
   import type { Snippet } from "svelte"
 
   import { cn } from "@/utils"
 
   interface Props {
-    href: string
+    href: NonNullable<LinkComponentBaseProps["href"]>
     tabindex?: number
     method?: Method
     as?: keyof HTMLElementTagNameMap
