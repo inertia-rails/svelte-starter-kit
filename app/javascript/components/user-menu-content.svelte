@@ -15,7 +15,7 @@
   interface Props {
     auth: {
       session: {
-        id: string
+        id: number
       }
       user: User
     }

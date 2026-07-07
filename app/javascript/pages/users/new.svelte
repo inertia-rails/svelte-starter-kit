@@ -3,11 +3,15 @@
   import { Form } from "@inertiajs/svelte"
   import { LoaderCircle } from "@lucide/svelte"
 
-  import InputError from "@/components/input-error.svelte"
   import TextLink from "@/components/text-link.svelte"
   import { Button } from "@/components/ui/button"
+  import {
+    Field,
+    FieldError,
+    FieldGroup,
+    FieldLabel,
+  } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import AuthBase from "@/layouts/auth-layout.svelte"
   import { sessions, users } from "@/routes"
 </script>
@@ -27,9 +31,9 @@
     class="flex flex-col gap-6"
   >
     {#snippet children({ errors, processing }: FormComponentSlotProps)}
-      <div class="grid gap-6">
-        <div class="grid gap-2">
-          <Label for="name">Name</Label>
+      <FieldGroup>
+        <Field>
+          <FieldLabel for="name">Name</FieldLabel>
           <Input
             id="name"
             name="name"
@@ -40,11 +44,11 @@
             autocomplete="name"
             placeholder="Full name"
           />
-          <InputError messages={errors.name} />
-        </div>
+          <FieldError errors={errors.name?.map((message) => ({ message }))} />
+        </Field>
 
-        <div class="grid gap-2">
-          <Label for="email">Email address</Label>
+        <Field>
+          <FieldLabel for="email">Email address</FieldLabel>
           <Input
             id="email"
             name="email"
@@ -54,11 +58,11 @@
             autocomplete="email"
             placeholder="email@example.com"
           />
-          <InputError messages={errors.email} />
-        </div>
+          <FieldError errors={errors.email?.map((message) => ({ message }))} />
+        </Field>
 
-        <div class="grid gap-2">
-          <Label for="password">Password</Label>
+        <Field>
+          <FieldLabel for="password">Password</FieldLabel>
           <Input
             id="password"
             name="password"
@@ -68,11 +72,13 @@
             autocomplete="new-password"
             placeholder="Password"
           />
-          <InputError messages={errors.password} />
-        </div>
+          <FieldError
+            errors={errors.password?.map((message) => ({ message }))}
+          />
+        </Field>
 
-        <div class="grid gap-2">
-          <Label for="password_confirmation">Confirm password</Label>
+        <Field>
+          <FieldLabel for="password_confirmation">Confirm password</FieldLabel>
           <Input
             id="password_confirmation"
             name="password_confirmation"
@@ -82,8 +88,12 @@
             autocomplete="new-password"
             placeholder="Confirm password"
           />
-          <InputError messages={errors.password_confirmation} />
-        </div>
+          <FieldError
+            errors={errors.password_confirmation?.map((message) => ({
+              message,
+            }))}
+          />
+        </Field>
 
         <Button
           type="submit"
@@ -96,7 +106,7 @@
           {/if}
           Create account
         </Button>
-      </div>
+      </FieldGroup>
 
       <div class="text-muted-foreground text-center text-sm">
         Already have an account?

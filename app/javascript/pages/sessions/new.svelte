@@ -3,11 +3,15 @@
   import { Form } from "@inertiajs/svelte"
   import { LoaderCircle } from "@lucide/svelte"
 
-  import InputError from "@/components/input-error.svelte"
   import TextLink from "@/components/text-link.svelte"
   import { Button } from "@/components/ui/button"
+  import {
+    Field,
+    FieldError,
+    FieldGroup,
+    FieldLabel,
+  } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import AuthBase from "@/layouts/auth-layout.svelte"
   import { identityPasswordResets, sessions, users } from "@/routes"
 </script>
@@ -26,9 +30,9 @@
     class="flex flex-col gap-6"
   >
     {#snippet children({ processing, errors }: FormComponentSlotProps)}
-      <div class="grid gap-6">
-        <div class="grid gap-2">
-          <Label for="email">Email address</Label>
+      <FieldGroup>
+        <Field>
+          <FieldLabel for="email">Email address</FieldLabel>
           <Input
             id="email"
             name="email"
@@ -39,12 +43,12 @@
             autocomplete="email"
             placeholder="email@example.com"
           />
-          <InputError messages={errors.email} />
-        </div>
+          <FieldError errors={errors.email?.map((message) => ({ message }))} />
+        </Field>
 
-        <div class="grid gap-2">
+        <Field>
           <div class="flex items-center justify-between">
-            <Label for="password">Password</Label>
+            <FieldLabel for="password">Password</FieldLabel>
             <TextLink
               href={identityPasswordResets.new()}
               class="text-sm"
@@ -62,8 +66,10 @@
             autocomplete="current-password"
             placeholder="Password"
           />
-          <InputError messages={errors.password} />
-        </div>
+          <FieldError
+            errors={errors.password?.map((message) => ({ message }))}
+          />
+        </Field>
 
         <Button
           type="submit"
@@ -76,7 +82,7 @@
           {/if}
           Log in
         </Button>
-      </div>
+      </FieldGroup>
 
       <div class="text-muted-foreground text-center text-sm">
         Don't have an account?

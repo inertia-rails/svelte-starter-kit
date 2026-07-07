@@ -1,22 +1,19 @@
-import { Tooltip as TooltipPrimitive } from "bits-ui"
-
-import Content from "./tooltip-content.svelte"
+import Root from "./tooltip.svelte"
 import Trigger from "./tooltip-trigger.svelte"
-
-const Root = TooltipPrimitive.Root
-const Provider = TooltipPrimitive.Provider
-const Portal = TooltipPrimitive.Portal
+import Content from "./tooltip-content.svelte"
+import Provider from "./tooltip-provider.svelte"
+import Portal from "./tooltip-portal.svelte"
 
 export {
-  Content,
-  Content as TooltipContent,
-  Portal,
-  Portal as TooltipPortal,
-  Provider,
-  Provider as TooltipProvider,
   Root,
+  Trigger,
+  Content,
+  Provider,
+  Portal,
   //
   Root as Tooltip,
-  Trigger,
+  Content as TooltipContent,
   Trigger as TooltipTrigger,
+  Provider as TooltipProvider,
+  Portal as TooltipPortal,
 }

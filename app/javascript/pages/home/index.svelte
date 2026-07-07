@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { page } from "@inertiajs/svelte"
-  import { inertia } from "@inertiajs/svelte"
+  import { Link, page } from "@inertiajs/svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
   import ResourceItem from "@/components/resource-item.svelte"
@@ -41,28 +40,25 @@
   >
     <nav class="flex items-center justify-end gap-4">
       {#if page.props.auth.user}
-        <a
-          href={dashboard.index().url}
-          use:inertia
+        <Link
+          href={dashboard.index()}
           class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
         >
           Dashboard
-        </a>
+        </Link>
       {:else}
-        <a
-          href={sessions.new().url}
-          use:inertia
+        <Link
+          href={sessions.new()}
           class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
         >
           Log in
-        </a>
-        <a
-          href={users.new().url}
-          use:inertia
+        </Link>
+        <Link
+          href={users.new()}
           class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
         >
           Register
-        </a>
+        </Link>
       {/if}
     </nav>
   </header>

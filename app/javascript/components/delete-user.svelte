@@ -3,11 +3,10 @@
   import { Form } from "@inertiajs/svelte"
 
   import HeadingSmall from "@/components/heading-small.svelte"
-  import InputError from "@/components/input-error.svelte"
   import { Button } from "@/components/ui/button"
   import * as Dialog from "@/components/ui/dialog"
+  import { Field, FieldError, FieldLabel } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import { users } from "@/routes"
 
   let passwordInput: HTMLInputElement | null = null
@@ -55,8 +54,10 @@
               </Dialog.Description>
             </Dialog.Header>
 
-            <div class="grid gap-2">
-              <Label for="password_challenge" class="sr-only">Password</Label>
+            <Field>
+              <FieldLabel for="password_challenge" class="sr-only">
+                Password
+              </FieldLabel>
               <Input
                 id="password_challenge"
                 type="password"
@@ -64,8 +65,12 @@
                 bind:ref={passwordInput}
                 placeholder="Password"
               />
-              <InputError messages={errors.password_challenge} />
-            </div>
+              <FieldError
+                errors={errors.password_challenge?.map((message) => ({
+                  message,
+                }))}
+              />
+            </Field>
 
             <Dialog.Footer class="gap-2">
               <Dialog.Close>

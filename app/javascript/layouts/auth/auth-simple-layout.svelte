@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { inertia } from "@inertiajs/svelte"
+  import { Link } from "@inertiajs/svelte"
   import type { Snippet } from "svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
@@ -20,9 +20,8 @@
   <div class="w-full max-w-sm">
     <div class="flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4">
-        <a
-          href={home.index().url}
-          use:inertia
+        <Link
+          href={home.index()}
           class="flex flex-col items-center gap-2 font-medium"
         >
           <div class="mb-1 flex size-14 items-center justify-center rounded-md">
@@ -31,7 +30,7 @@
             />
           </div>
           <span class="sr-only">{title}</span>
-        </a>
+        </Link>
         <div class="space-y-2 text-center">
           <h1 class="text-xl font-medium">{title}</h1>
           <p class="text-muted-foreground text-center text-sm">

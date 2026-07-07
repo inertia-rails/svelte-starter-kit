@@ -3,10 +3,14 @@
   import { Form } from "@inertiajs/svelte"
   import { LoaderCircle } from "@lucide/svelte"
 
-  import InputError from "@/components/input-error.svelte"
   import { Button } from "@/components/ui/button"
+  import {
+    Field,
+    FieldError,
+    FieldGroup,
+    FieldLabel,
+  } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import AuthLayout from "@/layouts/auth-layout.svelte"
   import { identityPasswordResets } from "@/routes"
 
@@ -32,47 +36,50 @@
     resetOnSuccess={["password", "password_confirmation"]}
   >
     {#snippet children({ errors, processing }: FormComponentSlotProps)}
-      <div class="grid gap-6">
-        <div class="grid gap-2">
-          <Label for="email">Email</Label>
+      <FieldGroup>
+        <Field>
+          <FieldLabel for="email">Email</FieldLabel>
           <Input
             id="email"
             name="email"
             type="email"
             autocomplete="email"
             value={email}
-            class="mt-1 block w-full"
             readonly
           />
-          <InputError messages={errors.email} class="mt-2" />
-        </div>
+          <FieldError errors={errors.email?.map((message) => ({ message }))} />
+        </Field>
 
-        <div class="grid gap-2">
-          <Label for="password">Password</Label>
+        <Field>
+          <FieldLabel for="password">Password</FieldLabel>
           <Input
             id="password"
             name="password"
             type="password"
             autocomplete="new-password"
-            class="mt-1 block w-full"
             autofocus
             placeholder="Password"
           />
-          <InputError messages={errors.password} />
-        </div>
+          <FieldError
+            errors={errors.password?.map((message) => ({ message }))}
+          />
+        </Field>
 
-        <div class="grid gap-2">
-          <Label for="password_confirmation">Confirm Password</Label>
+        <Field>
+          <FieldLabel for="password_confirmation">Confirm Password</FieldLabel>
           <Input
             id="password_confirmation"
             name="password_confirmation"
             type="password"
             autocomplete="new-password"
-            class="mt-1 block w-full"
             placeholder="Confirm password"
           />
-          <InputError messages={errors.password_confirmation} />
-        </div>
+          <FieldError
+            errors={errors.password_confirmation?.map((message) => ({
+              message,
+            }))}
+          />
+        </Field>
 
         <Button type="submit" class="mt-4 w-full" disabled={processing}>
           {#if processing}
@@ -80,7 +87,7 @@
           {/if}
           Reset password
         </Button>
-      </div>
+      </FieldGroup>
     {/snippet}
   </Form>
 </AuthLayout>

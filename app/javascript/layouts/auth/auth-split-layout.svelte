@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { inertia } from "@inertiajs/svelte"
+  import { Link } from "@inertiajs/svelte"
   import type { Snippet } from "svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
@@ -21,14 +21,13 @@
     class="bg-muted relative hidden h-full flex-col p-10 text-white lg:flex dark:border-r"
   >
     <div class="absolute inset-0 bg-zinc-900"></div>
-    <a
-      href={home.index().url}
-      use:inertia
+    <Link
+      href={home.index()}
       class="relative z-20 flex items-center text-lg font-medium"
     >
       <AppLogoIcon class="mr-2 size-8 fill-current text-white" />
       {import.meta.env.VITE_APP_NAME ?? "Svelte Starter Kit"}
-    </a>
+    </Link>
     <div class="relative z-20 mt-auto">
       <blockquote class="space-y-2">
         <p class="text-lg">

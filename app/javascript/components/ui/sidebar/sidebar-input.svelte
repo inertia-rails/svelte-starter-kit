@@ -1,22 +1,21 @@
 <script lang="ts">
-  import type { ComponentProps } from "svelte"
+	import type { ComponentProps } from "svelte";
+	import { Input } from "@/components/ui/input/index.js";
+	import { cn } from "@/utils.js";
 
-  import { Input } from "@/components/ui/input/index"
-  import { cn } from "@/utils"
-
-  let {
-    ref = $bindable(null),
-    value = $bindable(""),
-    class: className,
-    ...restProps
-  }: ComponentProps<typeof Input> = $props()
+	let {
+		ref = $bindable(null),
+		value = $bindable(""),
+		class: className,
+		...restProps
+	}: ComponentProps<typeof Input> = $props();
 </script>
 
 <Input
-  bind:ref
-  bind:value
-  data-slot="sidebar-input"
-  data-sidebar="input"
-  class={cn("bg-background h-8 w-full shadow-none", className)}
-  {...restProps}
+	bind:ref
+	bind:value
+	data-slot="sidebar-input"
+	data-sidebar="input"
+	class={cn("bg-background h-8 w-full shadow-none", className)}
+	{...restProps}
 />

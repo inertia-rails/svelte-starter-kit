@@ -4,10 +4,14 @@
   import { fly } from "svelte/transition"
 
   import HeadingSmall from "@/components/heading-small.svelte"
-  import InputError from "@/components/input-error.svelte"
   import { Button } from "@/components/ui/button"
+  import {
+    Field,
+    FieldError,
+    FieldGroup,
+    FieldLabel,
+  } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
   import { settingsPasswords } from "@/routes"
@@ -47,44 +51,57 @@
           processing,
           recentlySuccessful,
         }: FormComponentSlotProps)}
-          <div class="grid gap-2">
-            <Label for="password_challenge">Current password</Label>
-            <Input
-              id="password_challenge"
-              name="password_challenge"
-              type="password"
-              class="mt-1 block w-full"
-              autocomplete="current-password"
-              placeholder="Current password"
-            />
-            <InputError messages={errors.password_challenge} />
-          </div>
+          <FieldGroup>
+            <Field>
+              <FieldLabel for="password_challenge">
+                Current password
+              </FieldLabel>
+              <Input
+                id="password_challenge"
+                name="password_challenge"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Current password"
+              />
+              <FieldError
+                errors={errors.password_challenge?.map((message) => ({
+                  message,
+                }))}
+              />
+            </Field>
 
-          <div class="grid gap-2">
-            <Label for="password">New password</Label>
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              class="mt-1 block w-full"
-              autocomplete="new-password"
-              placeholder="New password"
-            />
-            <InputError messages={errors.password} />
-          </div>
+            <Field>
+              <FieldLabel for="password">New password</FieldLabel>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="New password"
+              />
+              <FieldError
+                errors={errors.password?.map((message) => ({ message }))}
+              />
+            </Field>
 
-          <div class="grid gap-2">
-            <Label for="password_confirmation">Confirm password</Label>
-            <Input
-              id="password_confirmation"
-              name="password_confirmation"
-              type="password"
-              class="mt-1 block w-full"
-              autocomplete="new-password"
-              placeholder="Confirm password"
-            />
-            <InputError messages={errors.password_confirmation} />
-          </div>
+            <Field>
+              <FieldLabel for="password_confirmation">
+                Confirm password
+              </FieldLabel>
+              <Input
+                id="password_confirmation"
+                name="password_confirmation"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Confirm password"
+              />
+              <FieldError
+                errors={errors.password_confirmation?.map((message) => ({
+                  message,
+                }))}
+              />
+            </Field>
+          </FieldGroup>
 
           <div class="flex items-center gap-4">
             <Button type="submit" disabled={processing}>Save password</Button>

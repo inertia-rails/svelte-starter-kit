@@ -25,7 +25,7 @@
 
   const auth = $derived(page.props.auth)
 
-  const deleteSession = (sessionId: string) => {
+  const deleteSession = (sessionId: number) => {
     router.delete(sessionsRoutes.destroy(sessionId).url)
   }
 </script>

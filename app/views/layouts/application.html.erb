@@ -24,7 +24,7 @@
       document.documentElement.classList.toggle(
         "dark",
         localStorage.appearance === "dark" ||
-        (!("appearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+          (!("appearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
       );
     </script>
 
