@@ -2,6 +2,7 @@
   import type { Snippet } from "svelte"
 
   import { SidebarProvider } from "@/components/ui/sidebar"
+  import * as storage from "@/lib/storage"
   import { cn } from "@/utils"
 
   interface Props {
@@ -12,18 +13,11 @@
 
   let { variant, children, class: className }: Props = $props()
 
-  let isOpen = $state<boolean>(
-    typeof window !== "undefined"
-      ? localStorage.getItem("sidebar") !== "false"
-      : true,
-  )
+  let isOpen = $state<boolean>(storage.getItem("sidebar") !== "false")
 
   function handleSidebarChange(open: boolean) {
     isOpen = open
-
-    if (typeof window !== "undefined") {
-      localStorage.setItem("sidebar", String(open))
-    }
+    storage.setItem("sidebar", String(open))
   }
 </script>
 

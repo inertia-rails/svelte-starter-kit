@@ -1,8 +1,8 @@
-import type { FlashData, SharedData } from "@/types"
+import type { FlashData, SharedProps } from "@/types"
 
 declare module "@inertiajs/core" {
   export interface InertiaConfig {
-    sharedPageProps: SharedData
+    sharedPageProps: SharedProps
     flashDataType: FlashData
     errorValueType: string[]
   }

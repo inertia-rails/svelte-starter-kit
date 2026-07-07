@@ -4,12 +4,10 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "plugins": [
-    "prettier-plugin-svelte",
     "prettier-plugin-tailwindcss"
   ],
   "tailwindFunctions": [
     "clsx",
     "cn"
-  ],
-  "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+  ]
 }

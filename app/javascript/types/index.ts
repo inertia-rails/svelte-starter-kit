@@ -1,4 +1,4 @@
-import type { LucideIcon } from "@lucide/svelte"
+import type { Component } from "svelte"
 
 export interface Auth {
   user: User
@@ -13,7 +13,7 @@ export interface BreadcrumbItem {
 export interface NavItem {
   title: string
   href: string
-  icon?: LucideIcon
+  icon?: Component
   isActive?: boolean
 }
 
@@ -22,7 +22,7 @@ export interface FlashData {
   notice?: string
 }
 
-export interface SharedData {
+export interface SharedProps {
   auth: Auth
 }
 
@@ -39,7 +39,7 @@ export interface User {
 export type BreadcrumbItemType = BreadcrumbItem
 
 export interface Session {
-  id: string
+  id: number
   user_agent: string
   ip_address: string
   created_at: string

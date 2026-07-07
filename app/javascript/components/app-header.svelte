@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { page } from "@inertiajs/svelte"
-  import { inertia } from "@inertiajs/svelte"
+  import { Link, inertia, page } from "@inertiajs/svelte"
   import { BookOpen, Folder, LayoutGrid, Menu, Search } from "@lucide/svelte"
 
   import AppLogoIcon from "@/components/app-logo-icon.svelte"
@@ -128,13 +127,9 @@
         </Sheet>
       </div>
 
-      <a
-        href={dashboard.index().url}
-        use:inertia
-        class="flex items-center gap-x-2"
-      >
+      <Link href={dashboard.index()} class="flex items-center gap-x-2">
         <AppLogo />
-      </a>
+      </Link>
 
       <!-- Desktop Menu -->
       <div class="hidden h-full lg:flex lg:flex-1">

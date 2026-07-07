@@ -3,11 +3,10 @@
   import { Form } from "@inertiajs/svelte"
   import { LoaderCircle } from "@lucide/svelte"
 
-  import InputError from "@/components/input-error.svelte"
   import TextLink from "@/components/text-link.svelte"
   import { Button } from "@/components/ui/button"
+  import { Field, FieldError, FieldLabel } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import AuthLayout from "@/layouts/auth-layout.svelte"
   import { identityPasswordResets, sessions } from "@/routes"
 </script>
@@ -23,8 +22,8 @@
   <div class="space-y-6">
     <Form action={identityPasswordResets.create()}>
       {#snippet children({ errors, processing }: FormComponentSlotProps)}
-        <div class="grid gap-2">
-          <Label for="email">Email address</Label>
+        <Field>
+          <FieldLabel for="email">Email address</FieldLabel>
           <Input
             id="email"
             name="email"
@@ -33,8 +32,8 @@
             autofocus
             placeholder="email@example.com"
           />
-          <InputError messages={errors.email} />
-        </div>
+          <FieldError errors={errors.email?.map((message) => ({ message }))} />
+        </Field>
 
         <div class="my-6 flex items-center justify-start">
           <Button type="submit" class="w-full" disabled={processing}>

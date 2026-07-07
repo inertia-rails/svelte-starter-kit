@@ -1,18 +1,17 @@
 <script lang="ts">
-  import { NavigationMenu as NavigationMenuPrimitive } from "bits-ui"
+	import { NavigationMenu as NavigationMenuPrimitive } from "bits-ui";
+	import { cn } from "@/utils.js";
 
-  import { cn } from "@/utils"
-
-  let {
-    ref = $bindable(null),
-    class: className,
-    ...restProps
-  }: NavigationMenuPrimitive.ItemProps = $props()
+	let {
+		ref = $bindable(null),
+		class: className,
+		...restProps
+	}: NavigationMenuPrimitive.ItemProps = $props();
 </script>
 
 <NavigationMenuPrimitive.Item
-  bind:ref
-  data-slot="navigation-menu-item"
-  class={cn("relative", className)}
-  {...restProps}
+	bind:ref
+	data-slot="navigation-menu-item"
+	class={cn("cn-navigation-menu-item relative", className)}
+	{...restProps}
 />

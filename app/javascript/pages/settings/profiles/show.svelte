@@ -5,10 +5,9 @@
 
   import DeleteUser from "@/components/delete-user.svelte"
   import HeadingSmall from "@/components/heading-small.svelte"
-  import InputError from "@/components/input-error.svelte"
   import { Button } from "@/components/ui/button"
+  import { Field, FieldError, FieldLabel } from "@/components/ui/field"
   import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
   import AppLayout from "@/layouts/app-layout.svelte"
   import SettingsLayout from "@/layouts/settings/layout.svelte"
   import { settingsProfiles } from "@/routes"
@@ -46,19 +45,18 @@
           processing,
           recentlySuccessful,
         }: FormComponentSlotProps)}
-          <div class="grid gap-2">
-            <Label for="name">Name</Label>
+          <Field>
+            <FieldLabel for="name">Name</FieldLabel>
             <Input
               id="name"
               name="name"
-              class="mt-1 block w-full"
               value={page.props.auth.user.name}
               required
               autocomplete="name"
               placeholder="Full name"
             />
-            <InputError class="mt-2" messages={errors.name} />
-          </div>
+            <FieldError errors={errors.name?.map((message) => ({ message }))} />
+          </Field>
 
           <div class="flex items-center gap-4">
             <Button type="submit" disabled={processing}>Save</Button>
