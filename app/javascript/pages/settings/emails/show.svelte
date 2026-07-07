@@ -21,7 +21,7 @@
     },
   ]
 
-  const user = $derived($page.props.auth.user)
+  const user = $derived(page.props.auth.user)
 
   const resendVerification = () => {
     router.post(identityEmailVerificationPath())
@@ -63,7 +63,7 @@
               name="email"
               type="email"
               class="mt-1 block w-full"
-              defaultValue={$page.props.auth.user.email}
+              defaultValue={page.props.auth.user.email}
               required
               autocomplete="username"
               placeholder="Email address"

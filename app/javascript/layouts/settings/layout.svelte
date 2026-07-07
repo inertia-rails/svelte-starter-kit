@@ -56,7 +56,7 @@
         {#each sidebarNavItems as item (item.href)}
           <Button
             variant="ghost"
-            class="w-full justify-start {$page.url === item.href
+            class="w-full justify-start {page.url === item.href
               ? 'bg-muted'
               : ''}"
           >

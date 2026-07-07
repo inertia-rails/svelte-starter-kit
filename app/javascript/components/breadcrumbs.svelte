@@ -30,8 +30,14 @@
           <BreadcrumbPage>{item.title}</BreadcrumbPage>
         {:else}
           <BreadcrumbLink>
-            {#snippet child({ props })}
-              <Link {...props} href={item.href ?? "#"}>{item.title}</Link>
+            {#snippet child({
+              props: { class: className, "data-slot": dataSlot },
+            })}
+              <Link
+                class={className}
+                data-slot={dataSlot}
+                href={item.href ?? "#"}>{item.title}</Link
+              >
             {/snippet}
           </BreadcrumbLink>
         {/if}

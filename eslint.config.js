@@ -83,5 +83,5 @@ export default ts.config(
       // 'svelte/rule-name': 'error'
     }
   },
-  { ignores: ["app/frontend/routes/*"] },
+  { ignores: ["app/javascript/routes/*"] },
 );

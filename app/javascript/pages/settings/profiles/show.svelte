@@ -53,7 +53,7 @@
               id="name"
               name="name"
               class="mt-1 block w-full"
-              value={$page.props.auth.user.name}
+              value={page.props.auth.user.name}
               required
               autocomplete="name"
               placeholder="Full name"
