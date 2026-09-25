@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { HTMLOlAttributes } from "svelte/elements";
 	import { cn, type WithElementRef } from "@/utils.js";
+	import type { HTMLOlAttributes } from "svelte/elements";
 
 	let {
 		ref = $bindable(null),
