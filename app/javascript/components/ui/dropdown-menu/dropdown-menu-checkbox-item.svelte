@@ -11,6 +11,7 @@
 		indeterminate = $bindable(false),
 		class: className,
 		children: childrenProp,
+		closeOnSelect = false,
 		...restProps
 	}: WithoutChildrenOrChild<DropdownMenuPrimitive.CheckboxItemProps> & {
 		children?: Snippet;
@@ -19,6 +20,7 @@
 
 <DropdownMenuPrimitive.CheckboxItem
 	bind:ref
+	{closeOnSelect}
 	bind:checked
 	bind:indeterminate
 	data-slot="dropdown-menu-checkbox-item"
