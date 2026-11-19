@@ -5,6 +5,7 @@ import { initializeTheme } from "@/runes/use-appearance.svelte"
 
 createInertiaApp({
   pages: "../pages",
+  serverHead: true,
   layout: () => PersistentLayout,
   defaults: {
     form: {
